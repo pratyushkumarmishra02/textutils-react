@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-//import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar(props) {
   return (
@@ -8,13 +8,12 @@ export default function Navbar(props) {
       className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}
     >
       <div className="container-fluid">
-        {/* <Link className="navbar-brand" to="/">
+        <Link className="navbar-brand" to="/">
           {props.title}
-        </Link> */}
-        <a className="navbar-brand" href="#">
+        </Link>
+        {/* <a className="navbar-brand" href="#">
           {props.title}
-        </a>
-
+        </a> */}
         <button
           className="navbar-toggler"
           type="button"
@@ -30,19 +29,21 @@ export default function Navbar(props) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              {/* <NavLink
+              <NavLink
                 to="/"
                 end
                 className={({ isActive }) =>
                   `nav-link ${isActive ? "active fw-bold text-primary" : ""}`
                 }
-              > */}
-              <a className="nav-link active" aria-current="page" href="#">
+              >
                 Home
-              </a>
+              </NavLink>
+              {/* <a className="nav-link active" aria-current="page" href="#">
+                Home
+              </a> */}
             </li>
 
-            {/* <li className="nav-item">
+            <li className="nav-item">
               <NavLink
                 to="/about"
                 className={({ isActive }) =>
@@ -51,7 +52,10 @@ export default function Navbar(props) {
               >
                 {props.aboutText}
               </NavLink>
-            </li> */}
+              {/* <a className="nav-link active" aria-current="page" href="#">
+                About
+              </a> */}
+            </li>
           </ul>
 
           <div
@@ -73,7 +77,7 @@ export default function Navbar(props) {
             </label>
           </div>
 
-          <form className="d-flex">
+          {/* <form className="d-flex">
             <input
               className="form-control me-2"
               type="search"
@@ -83,7 +87,7 @@ export default function Navbar(props) {
             <button className="btn btn-outline-primary" type="submit">
               Search
             </button>
-          </form>
+          </form> */}
         </div>
       </div>
     </nav>

@@ -31,6 +31,7 @@ export default function TextForm(props) {
       let textArea = document.querySelector("#myBox");
       textArea.select();
       await navigator.clipboard.writeText(textArea.value);
+      window.getSelection().removeAllRanges();
     } catch (err) {
       console.error("Failed to copy text: ", err);
     }
@@ -47,7 +48,7 @@ export default function TextForm(props) {
         className="container"
         style={{ color: props.mode === "light" ? "black" : "white" }}
       >
-        <h1>{props.heading}</h1>
+        <h2 className="mb-3">{props.heading}</h2>
         <div className="mb-3">
           <textarea
             className="form-control"
@@ -62,19 +63,23 @@ export default function TextForm(props) {
             }}
           ></textarea>
         </div>
-        <button className="btn btn-primary mx-2" onClick={handleUpclick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleUpclick}>
           Convert to UpperCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleLoclick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLoclick}>
           Convert to LowerCase
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleRmvExtWsclick}>
+        <button
+          disabled={text.length===0}
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleRmvExtWsclick}
+        >
           Remove Extra Whitespace
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleCopy}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleCopy}>
           Copy All
         </button>
-        <button className="btn btn-primary mx-2" onClick={handleClrclick}>
+        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleClrclick}>
           Clear All
         </button>
       </div>
@@ -89,7 +94,7 @@ export default function TextForm(props) {
         <p>{0.008 * wordCount} minuts read</p>
         <h2>Preview</h2>
         <p placeholder="Enter any text to preview that text here">
-          {text.length > 0 ? text : "Enter the text to preview here"}
+          {text.length > 0 ? text : "Nothing to preview!"}
         </p>
       </div>
     </>
