@@ -29,9 +29,9 @@ export default function TextForm(props) {
   const handleCopy = async () => {
     try {
       let textArea = document.querySelector("#myBox");
-      textArea.select();
+      //textArea.select();
       await navigator.clipboard.writeText(textArea.value);
-      window.getSelection().removeAllRanges();
+      //window.getSelection().removeAllRanges();
     } catch (err) {
       console.error("Failed to copy text: ", err);
     }
@@ -63,23 +63,44 @@ export default function TextForm(props) {
             }}
           ></textarea>
         </div>
-        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleUpclick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleUpclick}
+          style={props.btnColor}
+        >
           Convert to UpperCase
         </button>
-        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleLoclick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleLoclick}
+          style={props.btnColor}
+        >
           Convert to LowerCase
         </button>
         <button
-          disabled={text.length===0}
+          disabled={text.length === 0}
           className="btn btn-primary mx-2 my-1"
           onClick={handleRmvExtWsclick}
+          style={props.btnColor}
         >
           Remove Extra Whitespace
         </button>
-        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleCopy}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleCopy}
+          style={props.btnColor}
+        >
           Copy All
         </button>
-        <button disabled={text.length===0} className="btn btn-primary mx-2 my-1" onClick={handleClrclick}>
+        <button
+          disabled={text.length === 0}
+          className="btn btn-primary mx-2 my-1"
+          onClick={handleClrclick}
+          style={props.btnColor}
+        >
           Clear All
         </button>
       </div>
